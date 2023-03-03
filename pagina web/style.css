@@ -1,0 +1,55 @@
+table{
+    height: 500px;
+    width: 500px;
+    border-collapse: collapse;
+
+}
+
+.tablaColor{
+    height: max-content;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: max-content;
+    background-color: blueviolet;
+}
+
+
+#tabla{
+    color: aquamarine;
+}
+
+.posicion{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Tope{
+    display: table-row;
+    background-color: red;
+}
+
+#titulo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#botones{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#botonI{
+    margin: 20px;
+}
+#botonC{
+    margin: 20px;
+}
+
