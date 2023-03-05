@@ -1,2 +1,2 @@
 # DataBaseProyect
-Proyecto(De prueba) del curso de base de datos
+Proyecto del curso de base de datos

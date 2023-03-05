@@ -28,7 +28,10 @@
                 <input type = "text" name="precio" class="form-control" placeholder="Escriba el precio">
             </div>
             <div class="form-group">
-                <input type = "submit" name="insert" class="btn btn-warning" value = "Insertar artículo"><br />
+                <input type = "submit" name="insert" class="btn btn-warning" value = "Insertar"><br />
+            </div>
+            <div class="form-group">
+                <input type = "submit" name="close" class="btn btn-warning" value = "Cerrar"><br />
             </div>
         </form>
     </div>
@@ -45,6 +48,9 @@
             if($ejecutar){
                 echo "<h3>Insertado correctamente </h3>";
             }
+        }
+        if(isset($_POST['close'])){
+            //Regresar a la página principal
         }
     ?>
 </body>
