@@ -18,7 +18,7 @@
     <div class = "col-md-8 col-md-offset-2">
         <h1>Agregar artículo</h1>
 
-        <form method = "POST" action = "index.php">
+        <form method = "POST" action = "Lista.php">
             <div class="form-group">
                 <label>Nombre:</label>
                 <input type = "text" name="nombre" class="form-control" placeholder="Escriba el nombre"><br />
@@ -41,6 +41,18 @@
             $nombre=$_POST['nombre'];
             $precio=$_POST['precio'];
 
+            if(empty(trim($nombre))){
+                echo "<h3>El nombre del producto no puede estar vacío.</h3>";
+            } elseif(empty(trim($precio))){
+                echo "<h3>El precio del producto no puede estar vacío.</h3>";
+            } else {
+                $insertar = "INSERT INTO Articulo(nombre, precio) VALUES ('$nombre', '$precio')";
+                $ejecutar = sqlsrv_query($con, $insertar);
+                if($ejecutar){
+                    echo "<h3>Insertado correctamente</h3>";
+                }
+            }
+            /*
             $insertar = "INSERT INTO Articulo(nombre, precio)VALUES('$nombre', '$precio')";
 
             $ejecutar = sqlsrv_query($con, $insertar);
@@ -48,9 +60,11 @@
             if($ejecutar){
                 echo "<h3>Insertado correctamente </h3>";
             }
+            */
         }
         if(isset($_POST['close'])){
-            //Regresar a la página principal
+            echo "<h3>Cerrando </h3>";
+            include ('ConBD.php');
         }
     ?>
 </body>
