@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [warehouse]    Script Date: 2/28/2023 2:05:14 PM ******/
+/****** Object:  Database [warehouse]    Script Date: 3/6/2023 11:34:06 PM ******/
 CREATE DATABASE [warehouse]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -26,7 +26,7 @@ ALTER DATABASE [warehouse] SET ANSI_WARNINGS OFF
 GO
 ALTER DATABASE [warehouse] SET ARITHABORT OFF 
 GO
-ALTER DATABASE [warehouse] SET AUTO_CLOSE OFF 
+ALTER DATABASE [warehouse] SET AUTO_CLOSE ON 
 GO
 ALTER DATABASE [warehouse] SET AUTO_SHRINK OFF 
 GO
@@ -44,7 +44,7 @@ ALTER DATABASE [warehouse] SET QUOTED_IDENTIFIER OFF
 GO
 ALTER DATABASE [warehouse] SET RECURSIVE_TRIGGERS OFF 
 GO
-ALTER DATABASE [warehouse] SET  DISABLE_BROKER 
+ALTER DATABASE [warehouse] SET  ENABLE_BROKER 
 GO
 ALTER DATABASE [warehouse] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
 GO
@@ -80,7 +80,7 @@ ALTER DATABASE [warehouse] SET QUERY_STORE = OFF
 GO
 USE [warehouse]
 GO
-/****** Object:  Table [dbo].[Articulo]    Script Date: 2/28/2023 2:05:14 PM ******/
+/****** Object:  Table [dbo].[Articulo]    Script Date: 3/6/2023 11:34:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -95,29 +95,47 @@ CREATE TABLE [dbo].[Articulo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-SET IDENTITY_INSERT [dbo].[Articulo] ON 
+/****** Object:  StoredProcedure [dbo].[psInsertarArticulo]    Script Date: 3/6/2023 11:34:06 PM ******/
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (1, N'Motocierra', 3000.0000)
+SET QUOTED_IDENTIFIER ON
 GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (2, N'Lampara', 500.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (3, N'Television', 5000.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (4, N'Escritorio', 1000.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (5, N'Mochila', 500.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (6, N'Maleta', 1200.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (7, N'Perfume', 1500.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (8, N'Ventilador', 750.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (9, N'Celular', 2500.0000)
-GO
-INSERT [dbo].[Articulo] ([Id], [Nombre], [Precio]) VALUES (10, N'microondas', 1750.0000)
-GO
-SET IDENTITY_INSERT [dbo].[Articulo] OFF
+-- =============================================
+-- Author:		<Author,,Name> Oscar Campos 
+-- Create date: <Create Date,,> 4:00 am
+-- Description:	<Description,,> Insertar articulo
+-- =============================================
+CREATE PROCEDURE [dbo].[psInsertarArticulo]
+
+	@nombreArticulo varchar(124)
+	,@precioArticulo money		
+
+AS
+BEGIN
+	IF (@nombreArticulo not like '(!/^\s/)') AND (@nombreArticulo !='')
+		BEGIN
+			IF NOT EXISTS (select Nombre from Articulo A where A.Nombre = @nombreArticulo)
+				BEGIN
+					insert [dbo].[Articulo] (
+						  [Nombre]
+						, [Precio])
+						VALUES (
+						@nombreArticulo
+						,@precioArticulo
+						);
+					RETURN 2;
+				END
+			ELSE 
+				BEGIN
+					RETURN 3;
+				END
+		END
+	ELSE
+		BEGIN
+			RETURN 1
+		END
+
+END
 GO
 USE [master]
 GO
