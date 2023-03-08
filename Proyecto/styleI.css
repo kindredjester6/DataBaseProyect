@@ -2,3 +2,34 @@
     display: flex;
     margin: 20px;
 }
+
+/* Estilos para el modal ss*/
+  
+.modal-content {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-content:hover{
+    background-color: green;
+    /*transition-property: clip-path;
+    width: 61%;
+    height: 10%;
+    clip-path: polygon(30% 25%, 100% 0, 100% 100%, 0% 100%);
+    transition: clip-path 2s;*/
+    transition: ease-out 2s;
+  }
+  
+.forma{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+  
+  #disennoBtn:active{
+    box-shadow: 2px 2px 5px #000000;
+  }
