@@ -23,8 +23,7 @@
                         </tr>
     ';
 
-    $sql = "SELECT TOP (1000) *
-    FROM [dbo].[Articulo]";
+    $sql = "EXEC dbo.ordenAlfabetico";
     $stmt = sqlsrv_query( $con, $sql );
 
     if( $stmt === false) {
@@ -33,6 +32,8 @@
     ?>
 
     <?php 
+
+
     while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
         $table .= '
         <tr>            
