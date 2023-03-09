@@ -1,8 +1,8 @@
 <?php
 
 $serverName = "LAPTOP-SJR955OH";  
-$connectionInfo = array( "Database"=>"warehouse");
-//$connectionInfo = array( "Database"=>"warehouse", "UID"=>"unknown", "PWD"=>"y34[f4^M");
+//$connectionInfo = array( "Database"=>"warehouse");
+$connectionInfo = array( "Database"=>"warehouse", "UID"=>"unknown", "PWD"=>"y34[f4^M");
 $con = sqlsrv_connect( $serverName, $connectionInfo);
 
 if( $con ) {
