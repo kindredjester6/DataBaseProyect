@@ -1,6 +1,6 @@
 <?php
 
-$serverName = "proyectbdtest.database.windows.net";  
+$serverName = "proyectbdtest.database.windows.net";  //No olvidar el nombre del servidor 
 //$connectionInfo = array( "Database"=>"warehouse");
 $connectionInfo = array( "Database"=>"warehouse", "UID"=>"unknown", "PWD"=>"y34[f4^M");
 $con = sqlsrv_connect( $serverName, $connectionInfo);
