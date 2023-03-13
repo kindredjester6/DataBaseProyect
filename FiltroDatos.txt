@@ -1,0 +1,14 @@
+CREATE PROCEDURE fArticulo
+    @FArticulo NVARCHAR(255) = NULL,
+    @FPrecio NVARCHAR(255) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT a.Nombre, a.Precio
+    FROM dbo.Articulo a
+    WHERE (ISNULL(@FArticulo, '') = '' OR a.Nombre LIKE '%'+@FArticulo+'%')
+    AND (ISNULL(@FPrecio, '') = '' OR a.Precio LIKE '%'+@FPrecio+'%');
+
+    SET NOCOUNT OFF;
+END
