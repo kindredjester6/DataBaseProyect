@@ -1,23 +1,22 @@
+.tablaColor{
+    
+    height: max-content;
+    margin-top: 20px;
+    display: flex;  
+    flex-direction: column;
+    width: max-content;
+    position: relative;
+}
+
 table{
     height: 500px;
     width: 500px;
     border-collapse: collapse;
-
 }
-
-.tablaColor{
-    height: max-content;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: max-content;
-    background-color: blueviolet;
-}
-
 
 #tabla{
     color: aquamarine;
+    background-color: blue;
 }
 
 .posicion{
@@ -33,11 +32,11 @@ table{
 }
 
 #titulo{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    background-color: white;
+    text-align: initial;
+    position: static;
 }
+
 
 #botones{
     display: flex;
@@ -51,4 +50,53 @@ table{
 }
 #botonC{
     margin: 20px;
+}
+
+#LabelN{
+    display: flex;
+    align-items: initial;
+    flex-direction: column;
+}
+
+#InputN{
+    display: flex;
+    align-items: initial;
+    flex-direction: row;
+}
+
+#contentName{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+#LabelC{
+    display: flex;
+    align-items: initial;
+    flex-direction: column;
+    
+}
+
+#inputC{
+    display: flex;
+    align-items: initial;
+    flex-direction: row;
+}
+
+#contentC{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+#LabelCaja{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.controls{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
 }

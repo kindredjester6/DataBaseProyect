@@ -1,6 +1,6 @@
 <?php
 
-$serverName = "LAPTOP-SJR955OH";  
+$serverName = "LAPTOP-SJR955OH";  //no olvidar el nombre del servidor 
 $connectionInfo = array( "Database"=>"warehouse");
 //$connectionInfo = array( "Database"=>"warehouse", "UID"=>"unknown", "PWD"=>"y34[f4^M");
 $con = sqlsrv_connect( $serverName, $connectionInfo);

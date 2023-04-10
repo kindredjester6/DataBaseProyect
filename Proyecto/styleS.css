@@ -1,0 +1,56 @@
+html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+#fondo{
+    
+    display: flex;
+    background-color: blue;
+    flex-direction: column;
+    align-items: center;
+    height: 40rem;
+    justify-content: center;
+    width: 40rem;
+}
+
+#margen{
+
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    background: cyan
+}
+
+#Info{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 13rem;
+    justify-content: center;
+    align-items: start;
+    
+}
+#Tope{
+    display: flex;
+    justify-content: start;
+}
+
+#User{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 13rem;
+    justify-content: center;
+    align-items: start;
+}
+
+#botones{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
