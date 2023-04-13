@@ -1,8 +1,8 @@
 <?php
 
-$serverName = "LAPTOP-SJR955OH";  //no olvidar el nombre del servidor 
-$connectionInfo = array( "Database"=>"warehouse");
-//$connectionInfo = array( "Database"=>"warehouse", "UID"=>"unknown", "PWD"=>"y34[f4^M");
+$serverName = "database-1.c0dtmimmbhm5.us-east-1.rds.amazonaws.com";  //no olvidar el nombre del servidor 
+//$connectionInfo = array( "Database"=>"warehouse");
+$connectionInfo = array( "Database"=>"warehouse", "UID"=>"admin", "PWD"=>"473YYJHP");
 $con = sqlsrv_connect( $serverName, $connectionInfo);
 
 if( $con ) {

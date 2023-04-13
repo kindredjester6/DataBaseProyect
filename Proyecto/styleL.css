@@ -17,6 +17,7 @@ table{
 #tabla{
     color: aquamarine;
     background-color: blue;
+
 }
 
 .posicion{
@@ -38,12 +39,14 @@ table{
 }
 
 
+
 #botones{
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: center;
 }
+
 
 #botonI{
     margin: 20px;

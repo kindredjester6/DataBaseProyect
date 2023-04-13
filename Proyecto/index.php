@@ -16,7 +16,7 @@
 <body>
     <div id = formulario>
             <div class = "col-md-8 col-md-offset-2"> 
-                <form  method = "POST" action = "index.php">
+                <form  method = "POST" action = "index.php?user=<?=$user=$_GET['user']?>">
 
                 <h1>Agregar artículo</h1>
                     <div class="form-group">
@@ -46,7 +46,7 @@
                         <input type = "submit" name="insert" class="btn btn-warning" value = "Insertar artículo"><br />
 
                 </form>
-                            <form method = "GET" action = "lista.php" >
+                            <form method = "post" action = "lista.php?user=<?=$user=$_GET['user']?>" >
                                 <input type = "submit" name="Close" class="btn btn-warning" value = "Cerrar"><br />
                             </form>
                         </div>
@@ -55,11 +55,11 @@
         <br /><br /><br />
     </div>
     <?php
+        $user=$_GET['user'];
         if(isset($_POST['insert'])){
             $nombre=$_POST['nombre'];
             $precio=$_POST['precio'];
             $Sbox = $_POST['Sbox'];
-            $idUser=1;
             if (($precio=='')||(preg_match('/^[\pL\s]*$/u', $precio))){$precio = -1;} 
 
             if ((int)$precio >= 0){
@@ -67,7 +67,7 @@
                 $sql = "
                 declare @val int;
                 set @val = 0;
-                exec @val =  psInsertarArticulo '$nombre',".$Sbox.",".$precio.",".$idUser.",'$ip',@val output;
+                exec @val =  psInsertarArticulo '$nombre',".$Sbox.",".$precio.",".$user.",'$ip',@val output;
                 select @val as validacion;
                 ";
                 
@@ -82,7 +82,7 @@
                 }
                 elseif($list['validacion'] == 2){
                     echo 'entró';
-                    header("Location: http://localhost/Proyecto/lista.php");
+                    header("Location: http://localhost/Proyecto/lista.php?user=$user");
                     die();
                 }
 
